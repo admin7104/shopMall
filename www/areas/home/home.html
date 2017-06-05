@@ -1,0 +1,196 @@
+<ion-view id="home" view-title="home" cache-view="false">
+  <!--  cache-view="false"控制缓存页面-->
+  <!--头部搜索栏-->
+  <div id="headerBar" class="headerBar">
+    <div id="headerBar-bg"></div>
+    <div class="headerBar-logo">
+      <i></i>
+    </div>
+    <a class="headerBar-search"  ng-href="#">
+      <span></span>
+      <div>
+        <input  maxlength="20" autocomplete="true" value="冬季大放送"/>
+      </div>
+    </a>
+    <a class="headerBar-login" href="./areas/login/login.html">
+        <span>
+          登录
+            <!--<select>-->
+              <!--<option value="大连">大连</option>-->
+              <!--<option value="吉林">吉林</option>-->
+              <!--<option value="上海">上海</option>-->
+              <!--<option value="北京">北京</option>-->
+              <!--<option value="江西">江西</option>-->
+            <!--</select>-->
+        </span>
+    </a>
+  </div>
+  <ion-content id="home-content" class="scroll-content" scroll="false">
+    <!--头部滚动条-->
+    <div class="headerSlider">
+      <div id="headerSlider" class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" ng-repeat="item in headerSlideData">
+            <img alt="{{item.alt}}" ng-src="{{item.src}}">
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <!-- 功能导航 -->
+    <nav id="nav">
+      <span ui-sref="tab.category">
+        <img ng-src="img/home/icon_big_channel_jdmp.png" alt="">
+        <h2>景点门票</h2>
+      </span>
+      <span>
+        <img ng-src="img/home/icon_big_channel_gny.png" alt="">
+        <h2>定制游</h2>
+      </span>
+      <span>
+        <img ng-src="img/home/icon_big_channel_djjd.png" alt="">
+        <h2>假日酒店</h2>
+      </span>
+      <span>
+        <img ng-src="img/home/icon_big_channel_zby.png" alt="">
+        <h2>自驾游</h2>
+      </span>
+      <span>
+        <img ng-src="img/home/icon_big_channel_cjy.png" alt="">
+        <h2>主题游</h2>
+      </span>
+      <span>
+        <img ng-src="img/home/icon_big_channel_yl.png" alt="">
+        <h2>游轮</h2>
+      </span>
+      <span>
+        <img ng-src="img/home/icon_big_channel_fjp.png" alt="">
+        <h2>机票</h2>
+      </span>
+      <span>
+        <img src="img/home/icon_big_channel_hcp.png" alt="">
+        <h2>火车票</h2>
+      </span>
+    </nav>
+
+    <!--头条-->
+    <div class="toutiao">
+      <img ng-src="img/home/hot.jpg">
+      <div id="toutiaoSlider" class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">领880元新手红包，秋高去爽！</div>
+          <div class="swiper-slide">桂格即食燕麦片超值装1478g</div>
+          <div class="swiper-slide">上海迪士尼</div>
+        </div>
+      </div>
+    </div>
+
+    <!--广告1-->
+    <div class="ad">
+      <ion-slide-box show-pager="true" auto-play="true" does-continue="true">
+        <ion-slide>
+          <img ng-src="img/home/home-ad-1.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img ng-src="img/home/home-ad-2.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img ng-src="img/home/home-ad-3.jpg">
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+
+    <!-- 秒杀 -->
+    <div id="centent">
+      <div class="centent-top">
+        <span></span>
+        <h2>热门目的地</h2>
+        <div class="centent-time">
+          <span class="time-text">0</span>
+          <span class="time-text">0</span>
+          <span>:</span>
+          <span class="time-text">0</span>
+          <span class="time-text">0</span>
+          <span>:</span>
+          <span class="time-text">0</span>
+          <span class="time-text">0</span>
+        </div>
+        <div class="centent-more">
+          更多>
+        </div>
+      </div>
+      <ul class="centent-bottom">
+        <li>
+          <img ng-src="img/home/sanya.jpg" alt="">
+          <span>三亚</span>
+          <!--<span class="seckill-now">￥11.11</span>-->
+          <!--<span class="seckill-old">￥39.00</span>-->
+        </li>
+        <li>
+          <img ng-src="img/home/taiguo.jpg" alt="">
+          <span>泰国</span>
+          <!--<span class="seckill-now">￥69.00</span>-->
+          <!--<span class="seckill-old">￥299.00</span>-->
+        </li>
+        <li>
+          <img ng-src="img/home/xmjd.jpg" alt="">
+          <span>熊猫基地</span>
+          <!--<span class="seckill-now">￥99.00</span>-->
+          <!--<span class="seckill-old">￥199.00</span>-->
+        </li>
+      </ul>
+    </div>
+
+    <!--主题街-->
+    <div class="floor">
+      <div class="floor-title">热门推荐</div>
+      <div class="floor-product">
+        <div class="floor-product-list floor-left">
+          <img ng-src="img/home/qzy.jpg" alt="">
+        </div>
+        <div class="floor-product-list">
+          <img ng-src="img/home/sanya.png" alt="">
+          <img ng-src="img/home/mpttj.png" alt="">
+        </div>
+        <div class="floor-product-horizontal floor-product-list">
+          <img ng-src="img/home/zhoub.jpg" alt="">
+          <img ng-src="img/home/baiyuan.png" alt="">
+          <img ng-src="img/home/qycj.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!--广告2-->
+    <div class="ad" style="clear: both">
+      <ion-slide-box show-pager="true" auto-play="true" does-continue="true">
+        <ion-slide>
+          <img ng-src="img/home/home-ad-4.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img ng-src="img/home/home-ad-5.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img ng-src="img/home/home-ad-6.jpg">
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+    <!-- 产品展示 -->
+    <div id="floor-1" class="floor">
+      <div class="floor-title">手机专享</div>
+      <div class="floor-product">
+        <div class="floor-product-list">
+          <img ng-src="img/home/1ymp.png" alt="">
+          <img ng-src="img/home/cjtjr.jpg" alt="">
+        </div>
+        <div class="floor-product-list">
+          <img ng-src="img/home/ttcj.png" alt="">
+          <img ng-src="img/home/jbfl.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!--回到顶部的区块-->
+    <div class="back_top"></div>
+  </ion-content>
+</ion-view>

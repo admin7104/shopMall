@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="moviecat">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My AngularJS App</title>
+	<link rel="stylesheet" href="../../lib/bower_components/bootstrap/dist/css/bootstrap.css"/>
+	<style type="text/css">
+		body {
+			padding-top: 60px;
+			padding-bottom: 40px;
+		}
+		.sidebar-nav {
+			padding: 9px 0;
+		}
+
+		@media (max-width: 980px) {
+			/* Enable use of floated navbar text */
+			.navbar-text.pull-right {
+				float: none;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+      <a class="back" href="../.././index.html#/tab/more">返回</a>
+			<a class="navbar-brand" href="#">
+        豆瓣电影
+      </a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">Dashboard</a></li>
+				<li><a href="#">Settings</a></li>
+				<li><a href="#">Profile</a></li>
+				<li><a href="#">Help</a></li>
+			</ul>
+
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span3">
+			<div class="well sidebar-nav">
+				<!--<ul class="nav nav-list" ng-controller="NavController">-->
+					<!--&lt;!&ndash;<p>{{type}}</p>&ndash;&gt;-->
+					<!--<li ng-class="{active:type=='in_theaters'}"><a href="#/in_theaters/1">正在热映</a></li>-->
+					<!--<li ng-class="{active:type=='coming_soon'}"><a href="#/coming_soon/1">即将上映</a></li>-->
+					<!--<li ng-class="{active:type=='top250'}"><a href="#/top250/1">Top</a></li>-->
+				<!--</ul>-->
+				<ul class="nav nav-list">
+					<!--<p>{{type}}</p>-->
+					<li auto-focus><a href="#/in_theaters/1">正在热映</a></li>
+					<li auto-focus><a href="#/coming_soon/1">即将上映</a></li>
+					<li auto-focus><a href="#/top250/1">Top</a></li>
+					<form class="navbar-form navbar-right" ng-controller="SearchController" ng-submit="search()">
+            <!--  ng-controller="SearchController"-->
+						<input ng-model="input" type="text" class="form-control" placeholder="Search...">
+					</form>
+				</ul>
+			</div><!--/.well -->
+		</div><!--/span-->
+		<div class="span9">
+			<div class="hero-unit" ng-view>
+			</div>
+			<hr>
+		</div><!--/span-->
+	</div><!--/row-->
+
+
+	<footer>
+		<p>&copy; Company 2016 by WangLixin</p>
+	</footer>
+
+</div>
+
+<script src="../../lib/bower_components/angular/angular.js"></script>
+<script src="../../lib/bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="components/http.js"></script>
+<script src="movie_list/controller.js"></script>
+<script src="movie_detail/controller.js"></script>
+<script src="components/auto-focus.js"></script>
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>

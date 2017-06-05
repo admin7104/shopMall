@@ -1,0 +1,48 @@
+<ion-view id="account" view-title="我的" hide-back-button="true" cache-view="false">
+  <!--<ion-header-bar class="bar-positive">-->
+    <!--<h1 class="title">账户</h1>-->
+  <!--</ion-header-bar>-->
+  <ion-content scroll="false" ng-click="callPhone('88889999')">
+    <div class=".light-bg padding-top padding-bottom">
+      <a id="info" class=" item item-icon-right" href="./areas/login/login.html">
+        <!-- ng-click="func_showAction()"-->
+        <img  id="touxiang" src="img/details/touxiang.jpg" class="img-circle">
+        <p class="login" ng-show="lstate" >{{un}}</p>
+        <p class="login" ng-show="!lstate">您还未登录，点击登录</p>
+        <i class="icon ion-ios-arrow-right"></i>
+      </a>
+    </div>
+    <div class="list">
+      <div class="item .light-bg padding-top item-icon-right">
+        <a ng-href="#/cart"><label>查看所有订单</label>
+          <i class="icon ion-ios-arrow-right"></i>
+        </a>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right extend">
+        <input class="extend" placeholder="请输入要修改的密码" ng-model="updatepassword">
+          <!--<i class="icon ion-ios-arrow-right"></i>-->
+        <button  ng-click="updatePassword(updateId,updatepassword)">修改</button>
+      </div>
+
+      <div class="item .light-bg padding-top item-icon-right">
+        <label>关于周边游
+          <i class="icon ion-ios-arrow-right"></i>
+        </label>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right">
+        <label>联系我们</label>
+        <a class="telephone" href="tel:88889999">88889999</a>
+      </div>
+      <div class="item .light-bg padding-top item-icon-right">
+        <label>版本信息</label>
+        <span class="version">V1.0</span>
+      </div>
+    </div>
+    <div class="padding-top" ng-show="lstate">
+      <span class="button button-block button-assertive " ng-click="func_exitApp()">退出登录</span>
+    </div>
+  </ion-content>
+
+</ion-view>
+
+

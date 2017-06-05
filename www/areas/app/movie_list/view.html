@@ -1,0 +1,41 @@
+<h4 class="page-header">{{title}}</h4>
+<h5 ng-if="message">{{message}}</h5>
+<div class="list-group">
+	<a ng-repeat="item in subjects" href="#/detail/{{item.id}}" class="list-group-item">
+		<span class="badge">{{item.rating.average}}</span>
+		<div class="media">
+			<div class="media-left">
+				<img class="media-object" ng-src="{{item.images.small}}" alt="{{item.title}}">
+			</div>
+			<div class="media-body">
+				<h5 class="media-heading">{{item.title}}</h5>
+				<h6>类型：<span>{{item.genres.join("、")}}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>上映年份：{{item.year}}</span></h6>
+				<h6>导演：
+					<span ng-repeat="director in item.directors">{{director.name}}
+						<span ng-if="!$last">、</span>
+					</span>
+				</h6>
+				<h6>主演：
+					<span ng-repeat="castsname in item.casts">{{castsname.name}}{{$last?'':'、'}}</span>
+				</h6>
+			</div>
+		</div>
+	</a>
+</div>
+<div ng-show="!loading">
+	<p>总共：{{totalCount}}条记录&nbsp;&nbsp;第{{currentPage}}/{{totalPages}}页</p>
+	<nav>
+		<ul class="pager">
+			<li><a ng-click="go(currentPage-1)">上一页</a></li>
+			<!--  ng-class="{disabled:currentPage==1}" 这里不建议用class控制 进来在方法里面写-->
+			<li><a ng-click="go(currentPage+1)">下一页</a></li>
+		</ul>
+	</nav>
+</div>
+
+<div class="mask" ng-show="loading">
+	<div class="spinner ng-scope">
+		<div class="dot1"></div>
+		<div class="dot2"></div>
+	</div>
+</div>

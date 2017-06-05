@@ -1,0 +1,73 @@
+<ion-view id="cart" view-title="订单列表" hide-back-button="true" cache-view="false">
+  <ion-content class="scroll-content" scroll="false"  ng-click="callPhone('88889999')">
+    <!-- 头部 -->
+    <header id="header">
+      <div class="header-left">
+        <div ng-click="goBack()">
+          <span></span>
+        </div >
+      </div>
+      <div class="header-center" >
+        <span>订单列表</span>
+      </div>
+      <div class="header-right">
+        <span></span>
+      </div>
+    </header>
+    <!-- 安全 -->
+    <div id="anquan" ng-show="lstate">
+      <div class="anquan-warp">
+        <em></em>
+        <span>您正在安全购物环境中，请放心购物</span>
+      </div>
+    </div>
+    <!-- 产品列表 -->
+    <div id="pro">
+      <span>{{noorders}}</span>
+      <div class="pro-warp" ng-repeat="item in obj_cartDbData">
+        <!-- 列表容器内部 -->
+        <div class="pro-title">
+          <div class="pro-title-check"></div>
+          <div class="pro-title-name">
+            <!--<img src="img/cart/buy-logo.png" alt="">-->
+            <span>周边游订单</span>
+          </div>
+        </div>
+        <div class="pro-body">
+          <div class="pro-body-check"></div>
+          <div class="pro-body-des">
+            <a ng-href="#/details/{{item.productId}}">
+              <img src="{{item.src.src}}" alt="item.src.alt">
+            </a>
+            <div class="pro-body-des-text">
+              <span>{{item.description}}</span>
+              <span class="left">￥{{item.price}}</span>
+              <span class="right">×{{item.number}}</span>
+              <span class="right">{{item.state}}</span>
+              <div id="delete">
+                <i class="ion-trash-a" ng-click="func_delete(item.deleteId)"></i>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+  <!-- 固定底边栏 -->
+  <footer id="foot" ng-show="lstate">
+    <div class="footLeft">
+      <div class="checkall"></div>
+      <div class="checktext">全选</div>
+      <div class="foot-info">
+        <strong>合计:￥{{obj_cartDbData.total}}</strong>
+        <span>总额:￥{{obj_cartDbData.total}} 返现:￥0.00</span>
+      </div>
+    </div>
+    <div class="footRight" ng-click="func_goHome()">
+      去结算（0）
+    </div>
+  </footer>
+
+</ion-view>

@@ -1,0 +1,97 @@
+<ion-view id="details" view-title="商品详细页面" hide-back-button="true" cache-view="false">
+  <ion-content class="scroll-content" scroll="false" >
+    <!-- 头部 -->
+    <header id="header">
+      <div class="header-left">
+        <div ng-click="goBack()">
+          <span></span>
+        </div>
+      </div>
+      <div class="header-center">
+        <span>商品详情</span>
+      </div>
+      <div class="header-right">
+        <span></span>
+      </div>
+    </header>
+    <!-- 产品展示图 -->
+    <div class="headerSlider">
+      <div id="headerSlider" class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img alt="{{obj_goodsDetailInfo.picture.alt}}" ng-src="{{obj_goodsDetailInfo.picture.src}}">
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <!-- 产品选项 -->
+    <div id="des">
+      产品编号{{obj_goodsDetailInfo.goodsId}}
+      <div class="desText">{{obj_goodsDetailInfo.description}}</div>
+      <span class="desNumber">{{obj_goodsDetailInfo.price}}</span><sub>起/人</sub>
+    </div>
+    <div id="list">
+      <!--<div class="yixuan">-->
+        <!--<span>已选</span>-->
+        <!--66651k女 m 1件-->
+      <!--</div>-->
+      <div class="yanse clearBoth">
+        <span class="floatLeft">日期</span>
+        <div class="floatLeft" ng-repeat="item in obj_goodsInfo.colorGroup">
+          <input id="colorRadio{{$index}}" type="radio" name="color" value="{{item.value}}"  ng-checked="$index==0?true:false" ng-init="$index==0?obj_goodsDetailInfo.color=item.value:''" ng-model="obj_goodsDetailInfo.color">
+          <span ng-class="obj_goodsDetailInfo.color==item.value?'listCurrent':''" class="listBox"><label for="colorRadio{{$index}}">{{item.name}}</label></span>
+        </div>
+      </div>
+      <div class="chicun clearBoth">
+        <span class="floatLeft">价钱</span>
+        <div class="floatLeft" ng-repeat="item in obj_goodsInfo.sizeGroup">
+          <input id="sizeRadio{{$index}}" type="radio" name="size" value="{{item.value}}"  ng-checked="$index==0?true:false" ng-init="$index==0?obj_goodsDetailInfo.size=item.value:''" ng-model="obj_goodsDetailInfo.size">
+          <span ng-class="obj_goodsDetailInfo.size==item.value?'listCurrent':''" class="listBox"><label for="sizeRadio{{$index}}">{{item.name}}</label></span>
+        </div>
+      </div>
+      <div class="shuliang clearBoth">
+        <span class="floatLeft">数量</span>
+        <div class="floatLeft">
+          <span class="listLeft floatLeft" ng-click="jian1()">-</span>
+          <input class="floatLeft" type="text" readonly ng-model="obj_goodsDetailInfo.number">
+          <span class="listRight floatLeft" ng-click="jia1()">+</span>
+        </div>
+
+      </div>
+    </div>
+    <div id="otherInfo">
+      <div class="songzhi">
+        <div>推荐理由</div>
+        <p>{{obj_goodsDetailInfo.tuijian}}</p>
+      </div>
+      <div class="yunfei">
+        <div>简介</div>
+        <p>{{obj_goodsDetailInfo.content}}</p>
+      </div>
+      <div class="fuwu">
+        <div>费用须知</div>
+        <p ng-repeat="item in obj_goodsDetailInfo.money">{{item.value}}</p>
+      </div>
+      <div class="tishi">
+        <div>提示</div>
+        <p>该商品支持七天无理由退货</p>
+      </div>
+    </div>
+  </ion-content>
+  <!-- 固定底边栏 -->
+  <div id="buy">
+    <div class="buyLeft">
+      <span class="guanzhu" ng-click="shoucang()">
+        <span></span>
+        <strong>收藏</strong>
+      </span>
+      <div class="gouwuche" ui-sref="tab.account">
+        <span></span>
+        <i id="badge" class="badge badge-assertive">{{ordercount}}</i>
+        <strong>订单列表</strong>
+      </div>
+    </div>
+    <div class="buyRight" ng-click="yuyue()">立即预约</div>
+  </div>
+</ion-view>
